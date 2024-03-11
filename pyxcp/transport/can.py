@@ -298,6 +298,7 @@ class Can(BaseTransport):
         """
         super().__init__(config, policy)
         self.loadConfig(config)
+        try_to_install_system_supplied_drivers()  # initiate the local driver
         drivers = registered_drivers()
         interfaceName = self.config.get("CAN_DRIVER")
         if interfaceName not in drivers:
